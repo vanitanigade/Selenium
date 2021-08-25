@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="5" passed="5" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2021-08-25T23:18:25 IST" name="Default suite" finished-at="2021-08-25T23:18:29 IST" duration-ms="3880">
+    <groups>
+    </groups>
+    <test started-at="2021-08-25T23:18:25 IST" name="Default test" finished-at="2021-08-25T23:18:29 IST" duration-ms="3880">
+      <class name="seltestngbasic.SignupTestCases1">
+        <test-method is-config="true" signature="openBrowsernUrl()[pri:0, instance:seltestngbasic.SignupTestCases1@4218d6a3]" started-at="2021-08-25T23:18:25 IST" name="openBrowsernUrl" finished-at="2021-08-25T23:18:28 IST" duration-ms="2980" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- openBrowsernUrl -->
+        <test-method signature="verifyHeadingOfLoginPage()[pri:1, instance:seltestngbasic.SignupTestCases1@4218d6a3]" started-at="2021-08-25T23:18:28 IST" name="verifyHeadingOfLoginPage" finished-at="2021-08-25T23:18:28 IST" duration-ms="47" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyHeadingOfLoginPage -->
+        <test-method signature="verifyRegistrationLinkText()[pri:2, instance:seltestngbasic.SignupTestCases1@4218d6a3]" started-at="2021-08-25T23:18:28 IST" name="verifyRegistrationLinkText" finished-at="2021-08-25T23:18:28 IST" duration-ms="27" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyRegistrationLinkText -->
+        <test-method signature="clickRegistrationLink()[pri:3, instance:seltestngbasic.SignupTestCases1@4218d6a3]" started-at="2021-08-25T23:18:28 IST" name="clickRegistrationLink" finished-at="2021-08-25T23:18:28 IST" duration-ms="139" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- clickRegistrationLink -->
+        <test-method signature="verifyRegistration()[pri:4, instance:seltestngbasic.SignupTestCases1@4218d6a3]" started-at="2021-08-25T23:18:28 IST" name="verifyRegistration" finished-at="2021-08-25T23:18:28 IST" duration-ms="404" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyRegistration -->
+        <test-method signature="clickAlreadyMembershipLink()[pri:5, instance:seltestngbasic.SignupTestCases1@4218d6a3]" started-at="2021-08-25T23:18:28 IST" name="clickAlreadyMembershipLink" finished-at="2021-08-25T23:18:29 IST" duration-ms="145" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- clickAlreadyMembershipLink -->
+        <test-method is-config="true" signature="closeDriver()[pri:0, instance:seltestngbasic.SignupTestCases1@4218d6a3]" started-at="2021-08-25T23:18:29 IST" name="closeDriver" finished-at="2021-08-25T23:18:29 IST" duration-ms="97" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- closeDriver -->
+      </class> <!-- seltestngbasic.SignupTestCases1 -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>
