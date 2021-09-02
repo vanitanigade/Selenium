@@ -1,5 +1,7 @@
 package seltestngbasic;
 
+import java.io.IOException;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -8,13 +10,13 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-public class SignupTestCases1 {
+public class SignupTestCases {
 
 	WebDriver driver = null;
 
 
 	/*	@BeforeClass
-	public void browserSetup() {
+	public void browserSetup() {			//before creating openBrowser and openUrl method
 		System.setProperty("webdriver.chrome.driver", "chromedriver.exe");
 		driver = new ChromeDriver();
 		driver.get("file:///C:/Downloaded%20Programs/Selenium/Selenium%20Softwares/Offline%20Website/Offline%20Website/index.html");
@@ -26,10 +28,10 @@ public class SignupTestCases1 {
 	 */	
 
 	@BeforeClass
-	public void openBrowsernUrl() {
-		driver = SeleniumCommonFunctions1.openBrowser("chrome");
+	public void openBrowsernUrl() throws IOException {
+		driver = SelCommonFunctions.openBrowser(SelCommonFunctions.getConfigFileParamValue("browserName"));
 		driver.manage().window().maximize();
-		SeleniumCommonFunctions1.openUrl(driver, "file:///C:/Downloaded%20Programs/Selenium/Selenium%20Softwares/Offline%20Website/Offline%20Website/index.html");
+		SelCommonFunctions.openUrl( SelCommonFunctions.getConfigFileParamValue("url"));
 		String actloginPageTitle = driver.getTitle();
 		String exploginPageTitle = "JavaByKiran | Log in";
 		Assert.assertEquals(actloginPageTitle, exploginPageTitle);
@@ -46,8 +48,10 @@ public class SignupTestCases1 {
 	}
 
 	@Test(priority = 1)
-	public void verifyHeadingOfLoginPage() {
-		String actHeading = driver.findElement(By.xpath("/html/body/div/div[1]/a/b")).getText();
+	public void verifyHeadingOfLoginPage() throws IOException {
+		// new SeleniumCommonFunctions(driver);
+		String headingXpathValue = SelCommonFunctions.getXpathFileParamValue("HeadingOfLoginPagexpath");
+		String actHeading = SelCommonFunctions.getText("xpath", headingXpathValue);
 		Assert.assertEquals(actHeading, "Java By Kiran");
 	}
 
@@ -59,7 +63,7 @@ public class SignupTestCases1 {
 
 	@Test(priority = 3)
 	public void clickRegistrationLink() {
-		driver.findElement(By.linkText("Register a new membership")).click();
+		SelCommonFunctions.clickLink("linkText", "Register a new membership");
 		String registrationTitle = driver.getTitle();
 		Assert.assertEquals(registrationTitle, "JavaByKiran | Registration Page");
 	}
@@ -67,11 +71,11 @@ public class SignupTestCases1 {
 	@Test(priority = 4)
 	public void verifyRegistration() {
 		clearTextBoxes();
-		SeleniumCommonFunctions1.enterText(driver, "id", "name", "abc");
-		SeleniumCommonFunctions1.enterText(driver, "id", "mobile", "1234567890");
-		SeleniumCommonFunctions1.enterText(driver, "id", "email", "abc@gmail.com");
-		SeleniumCommonFunctions1.enterText(driver, "id", "password", "abc");
-		driver.findElement(By.xpath("//*[@id=\"form\"]/div[5]/div/button")).click();
+		SelCommonFunctions.enterText("id", "name", "abc");
+		SelCommonFunctions.enterText("id", "mobile", "1234567890");
+		SelCommonFunctions.enterText("id", "email", "abc@gmail.com");
+		SelCommonFunctions.enterText("id", "password", "abc");
+		SelCommonFunctions.clickButton("tagName", "button");
 		String userRegisteredMsg = driver.switchTo().alert().getText();
 		driver.switchTo().alert().accept();
 		Assert.assertEquals(userRegisteredMsg, "User registered successfully.");
@@ -79,8 +83,8 @@ public class SignupTestCases1 {
 
 	@Test(priority = 5)
 	public void clickAlreadyMembershipLink() {
-		driver.findElement(By.linkText("I already have a membership")).click();		
-		String loginPageTitle = driver.getTitle();									
+		SelCommonFunctions.clickLink("linkText", "I already have a membership");
+		String loginPageTitle = driver.getTitle();
 		Assert.assertEquals(loginPageTitle, "JavaByKiran | Log in");
 	}
 

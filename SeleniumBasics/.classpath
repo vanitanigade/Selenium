@@ -8,5 +8,6 @@
 	</classpathentry>
 	<classpathentry kind="lib" path="C:/Downloaded Programs/Selenium/Selenium Softwares/Offline Website/Offline Website/Software/selenium-server-standalone-3.9.0.jar" sourcepath="C:/Downloaded Programs/Selenium/Selenium Softwares/Offline Website/Offline Website/Software/selenium-java-2.46.0-srcs.jar"/>
 	<classpathentry kind="con" path="org.testng.TESTNG_CONTAINER"/>
+	<classpathentry kind="lib" path="C:/Downloaded Programs/Selenium/Selenium Softwares/Offline Website/Offline Website/jxl-2.6.12.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
