@@ -3,7 +3,10 @@ package seltestngbasic;
 import java.io.File;
 import java.io.IOException;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 
 import jxl.Workbook;
 import jxl.read.biff.BiffException;
@@ -28,19 +31,7 @@ public class Info {
 	 WebDriver driver = new ChromeDriver(); // brName.equals("chrome"); not allowed in industry as nullPointerException can occur
 	 return driver; } //OR
 	 */	 
+	
+	
 
-	public static void writeExstingExcel(String existingFile, String newFile, int colNo, int rowNo, String cellValue) throws BiffException, IOException, WriteException{
-		Workbook workbook = Workbook.getWorkbook(new File(existingFile));
-		File nwfile = new File(newFile);
-		WritableWorkbook copywk = Workbook.createWorkbook(nwfile, workbook);  //create a new excel and copy from existing
-		WritableSheet sheet = copywk.getSheet(0);
-		Label label = new Label(colNo, rowNo, cellValue);	//Label(colno, rowno, string)
-		sheet.addCell(label);
-		copywk.write();
-		copywk.close();
 	}
-
-	public static void main(String[] args) throws BiffException, WriteException, IOException {
-		writeExstingExcel("C:\\Users\\61435\\Documents\\Selenium\\Employee.xls", "C:\\Users\\61435\\Documents\\Selenium\\new.xls", 3, 0, "demo");
-	}
-}

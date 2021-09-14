@@ -82,7 +82,7 @@ public class AllTestCases {
 	@Test(priority = 7)
 	public void verifyEmailPlaceholderValue() {
 		String emailPlaceholderValue = SelCommonFunctions.getAttributeValue("id", "email", "placeholder");
-		Assert.assertEquals(emailPlaceholderValue, "Email");
+		Assert.assertEquals(emailPlaceholderValue, "Email.");
 	}
 
 	@Test(priority = 8)
@@ -96,6 +96,7 @@ public class AllTestCases {
 		SelCommonFunctions.enterText("id", "email", " ");
 		SelCommonFunctions.enterText("id", "password", "123456");
 		SelCommonFunctions.clickButton("tagName", "button");
+		SelCommonFunctions.getScreenshots();
 		String blankEmailErrorMsg = SelCommonFunctions.getText("id", "email_error");
 		Assert.assertEquals(blankEmailErrorMsg, "Please enter email as kiran@gmail.com");
 	}
@@ -145,8 +146,15 @@ public class AllTestCases {
 		System.out.println(dashboardPageTitle);
 		Assert.assertEquals(dashboardPageTitle, "JavaByKiran | Dashboard");
 	}
-
+	
 	@Test(priority = 14)
+	public void verifyUsersLinkText() throws IOException {
+		String UsersLinkText = SelCommonFunctions.getText("xpath",
+				SelCommonFunctions.getXpathFileParamValue("userslinkxpath"));
+		Assert.assertEquals(UsersLinkText, "Users");
+	}
+
+	@Test(priority = 15)
 	public void addUser() throws IOException {
 		SelCommonFunctions.clickButton("xpath", SelCommonFunctions.getXpathFileParamValue("adduserlinkxpath"));
 		SelCommonFunctions.clickButton("tagName", "button");
@@ -168,26 +176,52 @@ public class AllTestCases {
 		Assert.assertEquals(actUserAddedMsg, expUserAddedMsg);
 	}
 
-	@Test(priority = 15)
+	@Test(priority = 16)
 	public void verifyOperatorsLinkText() throws IOException {
 		String OperatorsLinkText = SelCommonFunctions.getText("xpath",
 				SelCommonFunctions.getXpathFileParamValue("operatorslinkxpath"));
 		Assert.assertEquals(OperatorsLinkText, "Operators");
 	}
 
-	@Test(priority = 16)
+	@Test(priority = 17)
 	public void verifyUsefulLinksText() throws IOException {
 		String UsefulLinksText = SelCommonFunctions.getText("xpath",
 				SelCommonFunctions.getXpathFileParamValue("usefullinkxpath"));
 		Assert.assertEquals(UsefulLinksText, "Useful Links");
-
 	}
 
-	@Test(priority = 17)
-	public void verifyUsersLinkText() throws IOException {
-		String UsersLinkText = SelCommonFunctions.getText("xpath",
-				SelCommonFunctions.getXpathFileParamValue("userslinkxpath"));
-		Assert.assertEquals(UsersLinkText, "Users");
+	@Test(priority = 18)
+	public void verifyDownloadsLinksText() throws IOException {
+		String UsefulLinksText = SelCommonFunctions.getText("xpath",
+				SelCommonFunctions.getXpathFileParamValue("downloadslinkxpath"));
+		Assert.assertEquals(UsefulLinksText, "Downloads");
 	}
-
+	
+	@Test(priority = 19)
+	public void clickDownloadsLinks() throws IOException {
+		SelCommonFunctions.clickButton("xpath", SelCommonFunctions.getXpathFileParamValue("downloadslinkxpath"));
+		String downloadsPageTitle = driver.getTitle();
+		Assert.assertEquals(downloadsPageTitle, "JavaByKiran | Downloads");
+	}
+	
+/*	@Test(priority = 20)
+	public void clickFirstRowButton() throws IOException {
+		SelCommonFunctions.clickButton("xpath", SelCommonFunctions.getXpathFileParamValue("1stjdkrowxpath"));
+		String downloadsPageTitle = driver.getTitle();
+		Assert.assertEquals(downloadsPageTitle, "Java SE Development Kit 8 - Downloads");
+	}
+*/	
+	@Test(priority = 21)
+	public void verifyLogoutLinksText() throws IOException {
+		String LogoutLinksText = SelCommonFunctions.getText("xpath",
+				SelCommonFunctions.getXpathFileParamValue("logoutlinkxpath"));
+		Assert.assertEquals(LogoutLinksText, "Logout");
+	}
+	
+	@Test(priority = 22)
+	public void clickLogoutLinks() throws IOException {
+		SelCommonFunctions.clickButton("xpath", SelCommonFunctions.getXpathFileParamValue("logoutlinkxpath"));
+		String downloadsPageTitle = driver.getTitle();
+		Assert.assertEquals(downloadsPageTitle, "JavaByKiran | Log in");
+	}
 }

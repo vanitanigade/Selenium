@@ -5,7 +5,7 @@
     <classes>
       <class name="seltestngbasic.LoginTestCases">
         <methods>
-          <include name="login" invocation-numbers="1"/>
+          <include name="login"/>
           <include name="openBrowsernUrl"/>
           <include name="closeDriver"/>
         </methods>
